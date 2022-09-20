@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+	<title>Week 2</title>
+
+	<style>
+		body {
+			background-color: indigo;
+		}
+	</style>
+
+	<script>
+		
+		alert('PICK A MOOD');
+
+		function q1() {
+			button = document.getElementById('q1');
+			console.log(button);
+			alert(button.value);
+			if(button.value=='SMILE'){
+				document.body.style.backgroundColor = "Yellow";
+			}
+		}
+
+		function q2() {
+			button = document.getElementById('q2');
+			console.log(button);
+			alert(button.value);
+			if(button.value=='SNARL'){
+				document.body.style.backgroundColor = "Red";
+			}
+		}
+
+		function q3() {
+			button = document.getElementById('q3');
+			console.log(button);
+			alert(button.value);
+			if(button.value=='FROWN'){
+				document.body.style.backgroundColor = "Blue";
+			}
+
+			else if (button.value = 'FROWN') {
+				document.body.style.backgroundColor = "grey";
+				button.value='END';
+			}
+			
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+		<div>
+			<h1>Pick One</h1>
+			<button onclick="q1()" value="SMILE" id="q1">Happy</button>
+			<button onclick="q2()" value="SNARL" id="q2">Mad</button>
+			<button onclick="q3()" value="FROWN" id="q3">Sad</button>
+		</div>
+
+</body>
+
+</html>
