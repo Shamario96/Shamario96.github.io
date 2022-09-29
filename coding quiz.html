@@ -1,0 +1,135 @@
+<html>
+
+<head>
+
+	<title>Quiz</title>
+
+	<script>
+		
+		alert('Welcome to Your Quiz. Correct answers will change screen color');
+
+		function q1() {
+			alert('INCORRECT');
+			document.getElementById("question").innerHTML = "question on button 1";
+		}
+
+		function q2() {
+			button = document.getElementById('q2');
+			console.log(button);
+			if(button.value=='365'){
+				document.body.style.backgroundColor = "Green";
+			}
+		}
+
+		function q3() {
+			alert('INCORRECT')
+		}
+
+		function q4() {
+			alert('INCORRECT')
+		}
+
+		function q5() {
+			alert('INCORRECT')
+		}
+
+		function q6() {
+			button = document.getElementById('q6');
+			console.log(button);
+			if(button.value=='Joe'){
+				document.body.style.backgroundColor = "Blue";
+			}
+		}
+
+		function q7() {
+			alert('INCORRECT')
+		}
+
+		function q8() {
+			alert('INCORRECT')
+		}
+
+		function q9() {
+			button = document.getElementById('q9');
+			console.log(button);
+			if(button.value=='1'){
+				document.body.style.backgroundColor = "Yellow";
+			}
+		}
+
+		function q11() {
+			alert('INCORRECT')
+		}
+
+		function q12() {
+			alert('INCORRECT')
+		}
+
+		function q10() {
+			button = document.getElementById('q10');
+			console.log(button);
+			if(button.value=='Bear'){
+				document.body.style.backgroundColor = "Brown";
+			}
+		}
+
+		function q14() {
+			alert('INCORRECT')
+		}
+
+		function q15() {
+			alert('INCORRECT')
+		}
+
+		function q13() {
+			button = document.getElementById('q13');
+			console.log(button);
+			if(button.value=='Betta'){
+				document.body.style.backgroundColor = "Indigo";
+			}
+		}
+
+
+	</script>
+
+</head>
+
+<body>
+
+		<div>
+			<h1>How many days are in a year?</h1>
+			<button onclick="q1()">12</button>
+			<button onclick="q2()" value="365" id="q2">365</button>
+			<button onclick="q3()">100,000</button>
+		</div>
+
+		<div>
+			<h1>Who is our current president?</h1>
+			<button onclick="q4()">Michael Jackson</button>
+			<button onclick="q5()">George Washington</button>
+			<button onclick="q6()" value="Joe" id="q6">Joe Biden</button>
+		</div>
+
+		<div>
+			<h1>What number comes after 0?</h1>
+			<button onclick="q7()">-1</button>
+			<button onclick="q8()">2</button>
+			<button onclick="q9()" value="1" id="q9">1</button>
+		</div>
+
+		<div>
+			<h1>What is a sure fire way to survive a bear attack?</h1>
+			<button onclick="q10()" value="Bear" id="q10">Don't be around a bear in the first place</button>
+			<button onclick="q11()">Hug the bear</button>
+			<button onclick="q12()">Become the bear</button>
+		</div>
+
+		<div>
+			<h1>What fish cannot be homed together?</h1>
+			<button onclick="q13()" value="Betta" id="q13">Betta Fish</button>
+			<button onclick="q14()">Cichlid Fish</button>
+			<button onclick="q15()">Sharks</button>
+		</div>
+
+</body>
+</html>
