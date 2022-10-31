@@ -1,0 +1,465 @@
+<html>
+
+<head>
+	<title>Survival Test</title>
+	<style>
+		body {
+			background-color: lightgoldenrodyellow;
+		}
+
+	/* Timer */
+		#safeTimerDisplay {
+			font-size: 20px;
+			border-style: inset;
+			border-color: grey;
+			background-color: white;
+			text-align: center;
+		}
+
+		div.safeTimer {
+			position: absolute;
+			top: 70%;
+			left: 46%;
+			width: 8%;
+			margin-right: -50%;			
+			margin: 0;
+			text-align: center;
+		}
+
+	/* Welcome Msg */
+		h1 {
+			position: relative;
+			top: 40%;
+			text-align: center;
+			margin: 0;
+			font-family: "Arial";
+		}
+
+		p.instructions {
+			position: relative;
+			top: 40%;
+			text-align: center;			
+			width: 580px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+		}
+	/* Start button */
+		.start {
+			position: absolute;
+			text-align: center;
+			left: 47%;
+			margin-right: -50%;
+			margin: 0;
+			bottom: 40%;
+		}
+
+		.easy {
+			position: absolute;
+			text-align: center;
+			left: 45%;
+			margin-right: -50%;
+			margin: 0;
+			bottom: 35%;
+			opacity: 0%;
+		}
+
+		.easy:hover {
+			opacity: 100%;
+		}
+
+		.ewo {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+			font-weight: bold;
+		}
+
+	/* Scenario 1*/
+		div.s1 {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+	/* Scenario 2*/
+		div.s2a {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+		div.s2c {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+	/* Scenario 3 */
+		div.s3b {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+		div.s3c {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+		div.ns3b {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+		}
+
+	/* Scenario 3 death*/
+		div.d2 {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+			font-weight: bold;
+		}
+
+		div.d3 {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+			font-weight: bold;
+		}
+
+		div.d4 {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+			font-weight: bold;
+		}
+
+	/* Scenario 2 death*/
+		div.d1 {
+			position: absolute;
+			top: 40%;
+			left: 35%;
+			text-align: center;
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+			font-family: "Arial";
+			display: none;
+			font-weight: bold;
+		}
+
+		
+	</style>
+
+	<script>
+		/* Timer */
+		function startTimer(duration,display){
+			var timer = duration, minutes, seconds;
+			setInterval(function () {
+				minutes = parseInt(timer / 60, 10)
+				seconds = parseInt(timer % 60, 10);
+
+				minutes = minutes < 10 ? "0" + minutes : minutes;
+				seconds = seconds < 10 ? "0" + seconds : seconds;
+
+				display.textContent = minutes + ":" + seconds;
+
+				if (--timer < 0) {
+					timer = 0;
+				}
+			}, 1000);
+		}
+
+		window.onload = function () {
+			var time = 60/0.1,
+				display = document.querySelector('#safeTimerDisplay');
+			startTimer(time, display);
+		}
+
+		/* Start Game */
+		function start() {
+			document.getElementById('start').style.display="none";
+			document.getElementById('welcome').style.display="none";
+			document.getElementById('instructions').style.display="none";
+			document.getElementById('easy').style.display="none";
+			document.getElementById('s1').style.display="block"
+		}
+
+		function easy() {
+			document.getElementById('start').style.display="none";
+			document.getElementById('easy').style.display="none";
+			document.getElementById('welcome').style.display="none";
+			document.getElementById('instructions').style.display="none";
+			document.getElementById('ewo').style.display="block";
+			button = document.getElementById('easy');
+			console.log(button);
+			if (button.value=='easy') {
+				document.body.style.backgroundColor = "rgba(21, 255, 2)"
+			}
+		}
+
+		/* Scenario 1 Choices */
+		function c1() {
+			document.getElementById('s1').style.display="none";
+			button = document.getElementById('c1');
+			console.log(button);
+			if (button.value=='c1') {
+				document.body.style.backgroundColor = "rgba(21, 255, 0, 0.2)";
+			document.getElementById('s2a').style.display="block"
+			}
+		}
+
+		function c2() {
+			document.getElementById('s1').style.display="none";
+			button = document.getElementById('c2');
+			console.log(button);
+			if (button.value=='c2') {
+				document.body.style.backgroundColor = "rgba(255, 0, 0)";
+			document.getElementById('d2').style.display="block";
+			}
+		}
+
+		function c3() {
+			document.getElementById('s1').style.display="none";
+			button = document.getElementById('c3');
+			console.log(button);
+			if (button.value=='c3') {
+			document.getElementById('s2c').style.display="block";
+			}
+		}
+
+		/* Scenario 2 Choices */
+		function c4() {
+			document.getElementById('s2a').style.display="none";
+			button = document.getElementById('c4');
+			console.log(button);
+			if (button.value=='c4') {
+				document.body.style.backgroundColor = "rgba(255, 0, 0)";
+			document.getElementById('d1').style.display="block";
+			}
+		}
+
+		function c5() {
+			document.getElementById('s2a').style.display="none";
+			button = document.getElementById('c5');
+			console.log(button);
+			if (button.value=='c5') {
+				document.body.style.backgroundColor = "rgba(21, 255, 0, 0.4)";
+			document.getElementById('s3b').style.display="block";
+			}
+		}
+
+		function c6() {
+			document.getElementById('s2a').style.display="none";
+			button = document.getElementById('c6');
+			console.log(button);
+			if (button.value=='c6') {
+				document.body.style.backgroundColor = "rgba(21, 255, 0, 0.4)";
+			document.getElementById('s3c').style.display="block";
+			}
+		}
+
+		/* Scenario 3 Neutral Choices */
+		function c13() {
+			document.getElementById('s2c').style.display="none";
+			button = document.getElementById('c13');
+			console.log(button);
+			if (button.value=='c13') {
+				document.body.style.backgroundColor = "rgba(255, 0, 0)";
+			document.getElementById('d3').style.display="block";
+			}
+		}
+
+		function c15() {
+			document.getElementById('s2c').style.display="none";
+			button = document.getElementById('c15');
+			console.log(button);
+			if (button.value=='c15') {
+				document.body.style.backgroundColor = "rgba(255, 0, 0)";
+			document.getElementById('d4').style.display="block";
+			}
+		}
+
+		function c14() {
+			document.getElementById('s2c').style.display="none";
+			button = document.getElementById('c14');
+			console.log(button);
+			if (button.value=='c14') {
+			document.getElementById('ns3b').style.display="block";
+			}
+		}
+
+	</script>
+</head>
+
+<body>
+	<h1 id="welcome">WELCOME TO YOUR SURVIVAL JOURNEY</h1><br>
+
+	<p class="instructions" id="instructions">The wilderness waits for no one. Your time has already started. You have 10 minutes to journey through a series of events and make it out safely. Your health will be indicated by the change of color of the screen. Green is good, red is bad and beige is neutral. Good luck and be safe!</p><br>
+
+	<!-- Start Button -->
+	<div>
+		<button class="start" onclick="start()" id="start"
+		value="start">Click To Enter</button>
+	</div>
+
+	<div>
+		<button class="easy" onkeypress="easy()" id="easy" value="easy">Click Space For The Easy Way Out</button>
+	</div>
+
+	<!-- Easy Way Out -->
+	<div class="ewo" id="ewo">
+		<h4>CONGRULATIONS</h4>
+		<p>Well then... this is literally the easy way out. You made it out the forest. A bit boring, aint it? Yeah so refresh the page and actually play.</p> <br>
+		<p>RANK: LAZY</p>
+	</div>
+
+	<!-- Timer -->
+	<div id="safeTimer" class="safeTimer">
+		<h2>Time Left</h2>
+		<p id="safeTimerDisplay" class="safeTimerDisplay">10:00</p>
+	</div>
+
+	<!-- Scenario 1 -->
+	<div class="s1" id="s1">
+		<p>Your plane has crashed about 3 months ago. You have been the only survivor and have actually been doing pretty well foraging and gathering food for yourself to survive. One night you decided to take a different trail to hunt and you see a bear drinking water from a stream. It's been a while since you had fresh and actually clean water. What do you do?</p>
+		<button onclick="c1()" value="c1" id="c1">Calmly walk up to the bear and pet it.</button>
+		<button onclick="c2()" value="c2" id="c2">Craft a bow and arrow and come back and attempt to turn the bear into food</button>
+		<button onclick="c3()" value="c3" id="c3">Leave the bear alone</button>
+	</div>
+
+	<!-- Scenario 2  S1 Choice A -->
+	<div class="s2a" id="s2a">
+		<p>It turns out the bear was just a cub and is more interested in playing than turning you into a human sandwich. After you finish play fighting with the cub, he leaves and you get to drink some fresh spring water. However, when you turn around. You see a glowing mushroom that peaks your interest. What do you do?</p>
+		<button onclick="c4()" value="c4" id="c4">Go up to eat the mushroom</button>
+		<button onclick="c5()" value="c5" id="c5">Throw a rock at the mushroom to see if anything happens. You don't trust anything glowing in the forest</button>
+		<button onclick="c6()" value="c6" id="c6">Leave and go back to camp</button>
+	</div>
+
+	<!-- Scenario 2 S1 Choice B -->
+	<div class="d2" id="d2">
+		<h3>FAILED</h3>
+		<p>Now I have a question. Are you a professional craftsman? What is your flimsy bow and arrow going to do to a bear? Unless you know bear anatomy and know exactly where to hit, this was not the choice. He turned you into lunch after you pissed him off.</p><br>
+		<p>Refresh this page and resurrect yourself to see if you can survive.</p> <br>
+		<p>RANK: PREY</p>
+	</div>
+
+	<!-- Scenario 2 neutral path S1 Choice C -->
+	<div class="s2c" id="s2c">
+		<p> Playing it safe huh? Or maybe you just respect nature and it's animals. You leave the bear alone and go back to camp. In the middle of the night you hear rustling and you look up and see a large dark figure walking towards you. What do you do?</p>
+		<button onclick="c13()" value="c13" id="c13">Get your hunting weapons and fight</button>
+		<button onclick="c14()" value="c14" id="c14">Try to lure its attention away with food.</button>
+		<button onclick="c15()" value="c15" id="c15">Climb tree</button>
+	</div>
+
+	<!-- Scenario 3 green path S2 Choice B -->
+	<div class="s3b" id="s3b">
+		<p> Good instincts. You see the rock you threw go through the mushroom and was able to deduce, that either the way was not safe or you are hallucinating. You head back to camp and nap. When you awake you notice a dart on the side of you which probably fell out as you woke up. This means there are more people in this forest! How will you proceed with this information?</p>
+		<button onclick="c7()" value="c7" id="c7">Gather supplies and craft weapons to go and search more survivors</button>
+		<button onclick="c8()" value="c8" id="c8">Mind your own business and survive</button>
+		<button onclick="c9()" value="c9" id="c9">Set traps</button>
+	</div>
+
+	<!-- Scenario 3 green path S2 Choice C -->
+	<div class="s3c" id="s3c">
+		<p>You head back to camp but see you start to see more and more glowing mushrooms and even glowing mushrooms. You realize that you're hallucinating and try to sleep it off or not react to anything going on that you may see. A couple hours pass and everything is back to normal. You find a dart on your hip and realize there are other people in this forest. What do you do with this information?</p>
+		<button onclick="c10()" value="c10" id="c10">Gather supplies and craft weapons to go and search more survivors</button>
+		<button onclick="c11()" value="c11" id="c11">Mind your own business and survive</button>
+		<button onclick="c12()" value="c12" id="c12">Set traps</button>
+	</div>
+
+	<!-- Scenario 3 Death S2 Choice A -->
+	<div class="d1" id="d1">
+		<h3>FAILED</h3>
+		<p>You should know glowing mushrooms do not exist. It was a trap set by a native cannibalistic tribe living in this forest. The glowing mushroom you saw was a hallucination from a dart rubbed with hallucinagetic herbs you did not realize you got shot with.</p><br>
+		<p>Refresh this page and resurrect yourself to see if you can survive.</p> <br>
+		<p>RANK: PSYCHONAUT</p>
+	</div>
+
+<!-- Scenario 3 Neutral path Death S2 Choice A and C -->
+	<div class="d3" id="d3">
+		<h3>FAILED</h3>
+		<p>Okay, so let me get this straight. You see a large dark figure coming towards you in the middle of the forest, you do not know what it is but you choose to fight it. Yeah, it was that bear you left and you already know what happened.</p><br>
+		<p>Refresh this page and resurrect yourself to see if you can survive.</p> <br>
+		<p>RANK: PREDATOR BAIT</p>
+	</div>
+
+	<div class="d4" id="d4">
+		<h3>FAILED</h3>
+		<p>Fun Fact: Black bears are actually really agile tree climbers. Nice try though.</p><br>
+		<p>Refresh this page and resurrect yourself to see if you can survive.</p> <br>
+		<p>RANK: SMART BAIT</p>
+	</div>
+
+	<!-- Scenario 3 Neutral Path Choice B -->
+	<div class="ns3b" id="ns3b">
+		<p>That seems to work. You drew its attention away and you see that it was the bear you left by the stream. However, the bear starts to come back daily for it's late night meals and you realize you are running out really quickly. What do you do?</p>
+		<button onclick="c16()" value="c16" id="c16">Plan and hunt the bear</button>
+		<button onclick="c17()" value="c17" id="c17">Move camps</button>
+		<button onclick="c18()" value="c18" id="c18">Keep feeding</button>
+	</div>
+
+</body>
+</html>
