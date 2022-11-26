@@ -1,0 +1,71 @@
+me
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exquisite Reuse</title>
+<style type="text/css">
+body {
+background-color: lightgoldenrodyellow;
+}
+h1.title1{
+  color: #6d8b74;
+  text-align: center;
+  font-size: 80px;
+}
+p.bar{
+  color: black;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+$( function() {
+    $( "#tabs" ).tabs({
+      event: "mouseover"
+    });
+  } );
+
+
+
+</script>
+</head>
+
+<body>
+  <h1 class="title1">Exqusite Reuse</h1>
+
+ 
+
+<p class ="bar" id="tabs">
+
+  <a href="#tabs-1">HOME</a>
+  <a href="#tabs-2">ABOUT US</a>
+  <a href="#tabs-3">COLLECTABLES</a>
+  <a href="#tabs-4">ORDERS</a>
+  <a href="#tabs-5">CONTACT US</a>
+</p>
+  <div id="tabs-1">
+   
+  </div>
+  <div id="tabs-2">
+    <button>Learn about us</button>
+  </div>
+  <div id="tabs-3">
+    <button>New Arrivals</button>
+  </div>
+  <div id="tabs-4">
+  <button>Check Order Status</button>
+  </div>
+  <div id="tabs-5">
+  <button>Location</button>
+  </div>
+</div>
+
+</body>
+</html>
