@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Hourly Wage Calculator</title>
+
+	 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+	<style>
+		a.navbar-brand {
+			color: orangered;
+			font-family: bebas;
+			font-size: 45px;
+		}
+
+		a.nav-link {
+			color: floralwhite;
+			font-family: bebas;
+			font-size: 20px;
+		}
+
+		h3 {
+			font-family: Gotham;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		p.lead {
+			text-align: center;
+		}
+
+		p.questions {
+			font-family: verdana;
+		}
+
+		p.OT {
+			display: none;
+		}
+
+		div.input-group-1 {
+			display: none;
+		}
+
+		p.wp {
+			display: none;
+		}
+
+		p.bp {
+			display: none;
+		}
+
+		p.mp {
+			display: none;
+		}
+
+		p.yp {
+			display: none;
+		}
+
+		p.weekpay {
+			display: none;
+		}
+
+		p.biweekpay {
+			display: none;
+		}
+		
+
+		p.monthpay {
+			display: none;
+		}
+
+		p.yearpay {
+			display: none;
+		}
+
+
+
+	</style>
+
+	<script>
+		
+		function OT() {
+			document.getElementById('OT').style.display="block";
+			document.getElementById('input').style.display="block"
+		}	
+
+		function noOT() {
+			document.getElementById('OT').style.display="none";
+			document.getElementById('input').style.display="none"
+		}
+
+		
+
+		function calculate() {
+			tax = document.getElementById("state").value;
+			num7 = document.getElementById("flexRadioDefault6").value;
+			num6 = document.getElementById("flexRadioDefault5").value;
+			num5 = document.getElementById("flexRadioDefault3").value;
+			num4 = document.getElementById("flexRadioDefault4").value;
+			num1 = document.getElementById("hours").value;
+    	num2 = document.getElementById("pay").value;
+    	num3 = document.getElementById("over").value;
+    	document.getElementById("weekpay").innerHTML = (num5 * (num1 * num2) + (num3 * (num2 * 1.5))) - (tax * num5 * (num1 * num2) + tax * (num3 * (num2 * 1.5)));
+    	document.getElementById("biweekpay").innerHTML = (num4 * (num1 * num2) + (num3 * (num2 * 1.5))) - (tax * num4 * (num1 * num2) + tax * (num3 * (num2 * 1.5)));
+    	document.getElementById("monthpay").innerHTML = (num6 * (num1 * num2) + (num3 * (num2 * 1.5))) - (tax * num6 * (num1 * num2) + tax * (num3 * (num2 * 1.5)));
+    	document.getElementById("yearpay").innerHTML = (num7 * (num1 * num2) + (num3 * (num2 * 1.5))) - (tax * num7 * (num1 * num2) + tax * (num3 * (num2 * 1.5)));
+		}
+
+
+
+		function weekly() {
+			document.getElementById('wp').style.display="block";
+			document.getElementById('bp').style.display="none";
+			document.getElementById('mp').style.display="none";
+			document.getElementById('yp').style.display="none";
+			document.getElementById('weekpay').style.display="block";
+			document.getElementById('biweekpay').style.display="none";
+			document.getElementById('monthpay').style.display="none";
+			document.getElementById('yearpay').style.display="none";
+		}
+
+		function biweekly() {
+			document.getElementById('wp').style.display="none";
+			document.getElementById('bp').style.display="block";
+			document.getElementById('mp').style.display="none";
+			document.getElementById('yp').style.display="none";
+			document.getElementById('weekpay').style.display="none";
+			document.getElementById('biweekpay').style.display="block";
+			document.getElementById('monthpay').style.display="none";
+			document.getElementById('yearpay').style.display="none";
+		}
+
+		function monthly() {
+			document.getElementById('wp').style.display="none";
+			document.getElementById('bp').style.display="none";
+			document.getElementById('mp').style.display="block";
+			document.getElementById('yp').style.display="none";
+			document.getElementById('weekpay').style.display="none";
+			document.getElementById('biweekpay').style.display="none";
+			document.getElementById('monthpay').style.display="block";
+			document.getElementById('yearpay').style.display="none";
+		}
+
+		function yearly() {
+			document.getElementById('wp').style.display="none";
+			document.getElementById('bp').style.display="none";
+			document.getElementById('mp').style.display="none";
+			document.getElementById('yp').style.display="block";
+			document.getElementById('weekpay').style.display="none";
+			document.getElementById('biweekpay').style.display="none";
+			document.getElementById('monthpay').style.display="none";
+			document.getElementById('yearpay').style.display="block";
+		}
+
+		function close() {
+			document.getElementById('info').style.display="none";
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  		<div class="container-fluid">
+    		<a class="navbar-brand" href="#">Hourly Wage Calculator</a>
+    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+   			</button>
+    		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+      			<ul class="navbar-nav">
+        			<li class="nav-item">
+          				<a class="nav-link" aria-current="page" href="#">HOME</a>
+        			</li>
+        			<li class="nav-item">
+          				<a class="nav-link" href="#">TAX INFORMATION</a>
+        			</li>
+        			<li class="nav-item">
+          				<a class="nav-link" href="#">PAYROLL RESOURCES</a>
+        			</li>
+        			<li class="nav-item dropdown">
+          				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            				STATE
+          				</a>
+          				<ul class="dropdown-menu">
+            				<li><a class="dropdown-item" href="#">New Hamster</a></li>
+            				<li><a class="dropdown-item" href="#">Freshland</a></li>
+            				<li><a class="dropdown-item" href="#">Bareland</a></li>
+            				<li><a class="dropdown-item" href="#">West Ridgeland</a></li>
+            				<li><a class="dropdown-item" href="#">New Bear City</a></li>
+          				</ul>
+        			</li>
+      			</ul>
+    		</div>
+  		</div>
+	</nav>
+	<br>
+
+	<h3>
+  		Welcome to the Hourly Wage Calculator!
+  		<small class="text-muted">Pay estimates including state taxes with weekly, bi-weekly, monthly and yearly options.</small>
+	</h3>
+
+
+	<p class="lead">
+  		Down below is a list of states. Select one and the calculator will automaticallly be set with the selected state's tax rate. Please note, these calculations do not include benefits as of yet. We will also ask a few additional questions to help calculate your request. Thanks for using the <strong>Hourly Wage Calculator<strong>.
+	</p>
+
+	<br>
+
+	<div class="container">
+		<div class="px-4 border border-dark rounded-start rounded-end"><br>
+			<p class="questions">Where do you work?</p>
+			<select class="form-select" id="state" aria-label="Default select example">
+  				<option value="0" selected>Select your state</option>
+  				<option value="0.03">New Hamster</option>
+  				<option value="0.08">Freshland</option>
+  				<option value="0.02">Bareland</option>
+  				<option value="0.05">West Ridgeland</option>
+  				<option value="0.074">New Bear City</option>
+			</select><br>
+
+			<p class="questions">Are you a part time or full time worker?</p>
+			<div class="form-check">
+  				<input class="form-check-input" type="radio" name="Work" id="flexRadioDefault1">
+  					<label class="form-check-label" for="flexRadioDefault1">
+    				Part Time
+  					</label>
+			</div>
+			<div class="form-check">
+  				<input class="form-check-input" type="radio" name="Work" id="flexRadioDefault2">
+  					<label class="form-check-label" for="flexRadioDefault2">
+    				Full Time
+  					</label>
+			</div><br>
+
+			<p class="questions">Approximately, how many hours do you work per week?</p>
+			<div class="input-group">
+			<label for="validationDefaultUsername" class="form-label"></label>
+      		<input type="number" value="0" class="form-control" id="hours" aria-describedby="inputGroupPrepend2" required>
+    	</div><br>
+
+    	<p class="questions">What is your hourly pay rate?</p>
+    	<div class="input-group mb-3">
+  			<span class="input-group-text" id="inputGroup-sizing-default">$</span>
+  			<input type="number" value="0" class="form-control" aria-label="Sizing example input" id="pay" aria-describedby="inputGroup-sizing-default">
+			</div><br>
+
+  		<p class="questions">Do you want to include overtime pay?</p>
+  		<div class="form-check">
+  				<input class="form-check-input" type="radio" name="YesNo" id="flexRadioDefault7" onclick="OT()">
+  					<label class="form-check-label" for="flexRadioDefault7">
+    				Yes
+  					</label>
+			</div>
+			<div class="form-check">
+  				<input class="form-check-input" type="radio" name="YesNo" id="flexRadioDefault8" onclick="noOT()">
+  					<label class="form-check-label" for="flexRadioDefault8">
+    				No
+  					</label>
+  		</div><br>
+
+  		<p class="OT" id="OT">Approximately, how many overtime hours do you work per week?</p>
+			<div class="input-group-1" id="input">
+			<label for="validationDefaultUsername" class="form-label"></label>
+      		<input type="number" value="0" class="form-control" id="over" aria-describedby="inputGroupPrepend2" required>
+    	</div><br>
+
+    	<p class="questions">Which type of report are you requesting?</p>
+  		<div class="form-check">
+  				<input class="form-check-input"  type="radio" name="Report" id="flexRadioDefault3" onclick="weekly()" value="1">
+  					<label class="form-check-label" for="flexRadioDefault3">
+    				Weekly
+  					</label>
+			</div>
+			<div class="form-check">
+  				<input class="form-check-input" value="2"  type="radio" name="Report" id="flexRadioDefault4" onclick="biweekly()">
+  					<label class="form-check-label" for="flexRadioDefault4">
+    				Bi-Weekly
+  					</label>
+  		</div>
+  		<div class="form-check">
+  				<input class="form-check-input" value="4"  type="radio" name="Report" id="flexRadioDefault5" onclick="monthly()">
+  					<label class="form-check-label" for="flexRadioDefault5">
+    				Monthly
+  					</label>
+			</div>
+			<div class="form-check">
+  				<input class="form-check-input" value="52"  type="radio" name="Report" id="flexRadioDefault6" onclick="yearly()">
+  					<label class="form-check-label" for="flexRadioDefault6">
+    				Yearly
+  					</label>
+  		</div><br>
+
+  		<div>	
+  		<button type="button" onclick="calculate()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info">
+  			Calculate
+			</button>
+		</div><br>
+		</div>
+	</div>
+
+
+	<div class="modal" tabindex="-1" id="info">
+  	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+   		<div class="modal-content">
+      	<div class="modal-header">
+        	<h5 class="modal-title">RESULTS</h5>
+        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      	</div>
+
+      	<div class="modal-body">
+      		<div id="1week">
+        		<p>According to the information entered, here is the estimated results:</p>
+
+        		<p id="wp" class="wp">Weekly Pay</p>
+        		<p id="weekpay" class="weekpay"></p>
+
+        		<p id="bp" class="bp">Bi-Weekly Pay</p>
+        		<p id="biweekpay" class="biweekpay"></p>
+
+        		<p id="mp" class="mp">Monthly Pay</p>
+        		<p id="monthpay" class="monthpay"></p>
+
+        		<p id="yp" class="yp">Yearly Pay</p>
+        		<p id="yearpay" class="yearpay"></p>
+
+        		<p>USD</p><br>
+
+        		<p>Note: This is not an accurate reflection of your paychecks, income, or salary. This is an estimate based on the information provided and does not include deductions or benefits.</p>
+        	</div>
+
+      	</div>
+
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      	</div>
+    	</div>
+  	</div>
+	</div><br>
+
+
+
+</body>
+
+
+<!-- JavaScript Links -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+    <script>
+    	// Source mixin
+@mixin make-container($padding-x: $container-padding-x) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Usage
+.custom-container {
+  @include make-container();
+}
+    </script>
+
+</html>
